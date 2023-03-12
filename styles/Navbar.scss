@@ -1,0 +1,50 @@
+@use './variables' as *;
+
+.navbar {
+    width: 100%;
+    color: $white;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+
+    &__wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: min-content;
+        background-color: $mainNavColor;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 45px;
+        transform: rotate(-10deg);
+    }
+}
+
+/* svg wave */
+
+.custom-shape-divider-top-1678654858 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg) translateY(-60%);
+    z-index: 1;
+}
+
+.custom-shape-divider-top-1678654858 svg {
+    position: relative;
+    display: block;
+    width: calc(144% + 1.3px);
+    height: 33px;
+}
+
+.custom-shape-divider-top-1678654858 .shape-fill {
+    fill: $mainNavColor;
+}
