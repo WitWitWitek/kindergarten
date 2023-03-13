@@ -1,11 +1,11 @@
 import Link from "next/link"
 
-export default function NavMenu({ isMenuOpen }: NavmenuProps) {
+export default function NavMenu({ isMenuOpen, setIsMenuOpen }: NavmenuProps) {
   return (
     <ul className={`navmenu ${isMenuOpen ? 'navmenu__open' : ''}`}>
-        <Link href="">aktualnosci</Link>
-        <Link href="">galeria</Link>
-        <Link href="">kontakt</Link>
+        <Link href="" className="navmenu__item" onClick={() => setIsMenuOpen(false)}>aktualnosci</Link>
+        <Link href="" className="navmenu__item" onClick={() => setIsMenuOpen(false)}>galeria</Link>
+        <Link href="" className="navmenu__item" onClick={() => setIsMenuOpen(false)}>kontakt</Link>
     </ul>
   )
 }

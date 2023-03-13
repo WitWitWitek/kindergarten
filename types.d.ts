@@ -6,4 +6,5 @@ interface HomepageProps {
 
 interface NavmenuProps {
     isMenuOpen: boolean
+    setIsMenuOpen: Dispatch<SetStateAction<boolean>>
 }

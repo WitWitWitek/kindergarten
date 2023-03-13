@@ -1,0 +1,18 @@
+@use './variables' as  *;
+
+@mixin button (
+    $fontSize: 4rem,
+    $fontColor: $white,
+    $backgroundColor: transparent,
+) {
+    font-family: 'Itim', cursive;
+    color: $fontColor;
+    font-size: $fontSize;
+    cursor: pointer;
+    background-color: $backgroundColor;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    &:hover {
+        color: $darkGray;
+    }
+}

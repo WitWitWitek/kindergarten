@@ -1,12 +1,93 @@
 @use './variables' as *;
+@use './breakpoints' as *;
+@use './decorators' as *;
 
 .footer {
     background-color: $darkGray;
     color: $white;
     width: 100%;
-    height: 30vh;
+    min-height: 30vh;
     position: relative;
+
+    &__container {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 0;
+        h3 {
+            letter-spacing: 0.05rem;
+            font-family: 'Itim', cursive;
+            position: relative;
+            font-size: 1.8rem;
+            &::after {
+                @include titleDecorator;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            &:hover {
+                color: $lightRed;
+            }
+        }
+    }
 }
+
+@include sm {
+    .footer {
+        min-height: 20vh;
+        &__container {
+            flex-direction: row;
+            align-items: flex-start;
+
+            h3 {
+                font-size: 2.3rem;
+                &::after {
+                    margin: .5rem 0;
+                }
+            }
+
+            div {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@include md {
+    .footer {
+        &__container {
+            h3 {
+                font-size: 2.5rem;
+            }
+
+            div {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
 
 .custom-shape-divider-bottom-1678697977 {
     position: absolute;
