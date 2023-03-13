@@ -1,30 +1,29 @@
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
+import NavWave from "../Waves/NavWave"
 import NavMenu from "./NavMenu/NavMenu"
+import { Squeeze as Hamburger } from 'hamburger-react'
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
     return (
-        <nav className="navbar">
+        <>
+            <nav className="navbar">
                 <div className="navbar__wrapper">
-                    <div className="navbar__logo-container">
-                        <Link href="">
-                            <img className='navbar__logo' src="/logo.svg" alt="logotype" />
-                        </Link>
-                    </div>
-                    <div className="navbar__links-container">
-                        <button onClick={() => setIsMenuOpen(prev => !prev)}>Menu</button>
-                        {isMenuOpen && <NavMenu />}
-                    </div>
+                    <Link href="" className="navbar__logo-container">
+                        <Image src='/logo.svg' alt="logotype" fill />
+                    </Link>
+                    <button onClick={() => setIsMenuOpen(prev => !prev)} className="navbar__menu-btn">
+                        <Hamburger toggled={isMenuOpen} color="#FFF" />
+                    </button>
                 </div>
                 <div className="navbar__svg-container">
-                    <div className="custom-shape-divider-top-1678654858">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
-                        </svg>
-                    </div>
+                    <NavWave />
                 </div>
-        </nav>
+            </nav>
+            <NavMenu isMenuOpen={isMenuOpen} />
+        </>
     )
 }
