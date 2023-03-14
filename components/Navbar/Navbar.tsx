@@ -12,7 +12,7 @@ export default function Navbar() {
         <>
             <nav className="navbar">
                 <div className="navbar__wrapper">
-                    <Link href="" className="navbar__logo-container" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/" className="navbar__logo-container" onClick={() => setIsMenuOpen(false)}>
                         <Image src='/logo.svg' alt="logotype" fill />
                     </Link>
                     <button onClick={() => setIsMenuOpen(prev => !prev)} className="navbar__menu-btn">

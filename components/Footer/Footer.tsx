@@ -11,9 +11,9 @@ export default function Footer() {
           title="Chatka Puchatka" 
           content={
             <>
-              <Link href=""><span>» </span>aktualnosci</Link>
-              <Link href=""><span>» </span>galeria</Link>
-              <Link href=""><span>» </span>kontakt</Link>
+              <Link href="/aktualnosci"><span>» </span>aktualnosci</Link>
+              <Link href="/galeria"><span>» </span>galeria</Link>
+              <Link href="/kontakt"><span>» </span>kontakt</Link>
             </>
           } 
         />

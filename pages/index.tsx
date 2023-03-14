@@ -1,10 +1,14 @@
 import { client } from '../lib/apollo';
 import { gql } from '@apollo/client';
+import HomeBanner from '@/components/HomeBanner/HomeBanner';
 
 export default function Home({ homepage }: HomepageProps) {
   return (
     <>
-      <h1>Puchatek przedszkole</h1>
+      <HomeBanner />
+      <h1 id='main-title'>Przedszkole Chatka Puchatka</h1>
+      <article className='content' dangerouslySetInnerHTML={{__html: homepage.content}}></article>
+      <article className='content' dangerouslySetInnerHTML={{__html: homepage.content}}></article>
       <article className='content' dangerouslySetInnerHTML={{__html: homepage.content}}></article>
     </>
   )

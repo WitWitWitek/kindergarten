@@ -1,0 +1,104 @@
+@use './variables' as *;
+@use './breakpoints' as *;
+@use './buttons' as *;
+
+.home-banner {
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    &__container {
+        width: 100%;
+        height: 100%;
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            width: 150%;
+            height: 150%;
+            background-color: rgba($darkGray, $alpha: .6);
+        }
+    }
+
+    &__photo {
+        &--above, &--below {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &--above {
+            animation: photoAppears 0.7s ease-in-out;
+        }
+    }
+    &__main {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            letter-spacing: 2px;
+            font-size: 5rem;
+            text-align: center;
+            color: $white;
+        }
+    }
+
+    &__button {
+        @include button(2rem, $white, $lightRed);
+        text-decoration: none;
+        margin: 2rem 0;
+        text-align: center;
+    }
+}
+
+
+
+
+@keyframes photoAppears {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.custom-shape-divider-bottom-1678786164 {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1678786164 svg {
+    position: relative;
+    display: block;
+    width: calc(153% + 1.3px);
+    height: 99px;
+}
+
+.custom-shape-divider-bottom-1678786164 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1678786164 svg {
+        width: calc(157% + 1.3px);
+        height: 53px;
+    }
+}
