@@ -5,7 +5,7 @@ import HomeBanner from '@/components/HomeBanner/HomeBanner';
 export default function Home({ homepage }: HomepageProps) {
   return (
     <>
-      <HomeBanner />
+      {/* <HomeBanner /> */}
       <h1 id='main-title'>Przedszkole Chatka Puchatka</h1>
       <article className='content' dangerouslySetInnerHTML={{__html: homepage.content}}></article>
       <article className='content' dangerouslySetInnerHTML={{__html: homepage.content}}></article>
