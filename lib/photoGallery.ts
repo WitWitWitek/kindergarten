@@ -1,7 +1,23 @@
-export const getImagesGallery = async (uri: string): Promise<void> => {
+export const getImagesGallery = async (uri: string): Promise<Image[] | null> => {
     const photoGalleryRes = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/wp-json/wp/v2/posts?slug=${uri}`)
     const photoGalleryData = await photoGalleryRes.json()
 
-    // console.log(photoGalleryRes);
+    const { photoGallery } = photoGalleryData[0]?.acf;
+
+    const postGallery: Image[] = [];
+
+    if (!photoGallery) {
+        return null
+    }
+
+    for (const image of photoGallery) {
+        postGallery.push({
+            title: image.title,
+            caption: image.caption,
+            sourceUrl: image.full_image_url
+        })
+    }
+
+    return postGallery;
 }
 

@@ -1,9 +1,20 @@
 import { client } from '../../lib/apollo';
 import { gql } from '@apollo/client';
+import { getImagesGallery } from '@/lib/photoGallery';
+import ImageGallery from '@/components/ImageGallery/ImageGallery';
 
-export default function SlugPage({ post }: { post: Post }) {
+interface SlugPageProps {
+  post: Post,
+  gallery: Image[]
+}
+
+export default function SlugPage({ post, gallery }: SlugPageProps) {
   return (
-    <div>{post.title}</div>
+    <div className="slug-page">
+      <h2 className="slug-page__title">{post.title}</h2>
+      <article className='slug-page__content' dangerouslySetInnerHTML={{__html: post.content}}></article>
+      {gallery && <ImageGallery images={gallery} />}
+    </div>
   )
 }
 
@@ -30,8 +41,10 @@ export async function getStaticProps({ params }: { params: { slug: string }}){
           }
         }
       }
-`
-  
+    `
+
+    const gallery = await getImagesGallery(params.slug)
+
     const response = await client.query({
         query: GET_POST_BY_URI,
         variables: {
@@ -42,13 +55,14 @@ export async function getStaticProps({ params }: { params: { slug: string }}){
     const post = response?.data?.post
     return {
       props: {
-        post
+        post,
+        gallery
       }
     }
   }
   
   export async function getStaticPaths(){
-      
+      // add array !!
       const paths: string[] = []
 
       return {

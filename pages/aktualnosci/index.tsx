@@ -1,6 +1,4 @@
-import Link from "next/link"
 import { useEffect, useState } from "react"
-import { fetchPostsPerPage } from "@/lib/pagination"
 import Pagination from "@/components/Pagination/Pagination"
 import Post from "@/components/Post/Post";
 
@@ -11,12 +9,13 @@ export default function NewsPage() {
   const [pagination, setPagination] = useState<Pagination | null>()
   
   useEffect(() => {
-    fetchPostsPerPage(page, 3)
-      .then(response => {
-        const { postListRefactored, paginationData } = response
+    fetch(`/api/postsPagination?per_page=3&page=${page}&order=desc`)
+      .then(response => response.json())
+      .then(data => {
+        const { postListRefactored, paginationData } = data;
         setPosts(postListRefactored)
         setPagination(paginationData)
-    })
+      })
   }, [page])
 
   if (!pagination || !posts) {

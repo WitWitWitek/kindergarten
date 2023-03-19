@@ -1,0 +1,21 @@
+@use './variables' as *;
+
+.image-gallery {
+    width: 100%;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1rem;
+    margin: 1rem 0;
+    border: 1px solid $darkGray;
+    background-color: $white;
+
+    &__image-container {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        border: 1px solid $darkGray;
+        background-color: rgba($lightRed, $alpha: .7);
+    }
+}

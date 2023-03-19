@@ -41,3 +41,9 @@ interface Post {
         }
     }
 }
+
+interface Image {
+    title: string,
+    caption: string,
+    sourceUrl: string
+}
