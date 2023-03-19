@@ -10,11 +10,11 @@ interface SlugPageProps {
 
 export default function SlugPage({ post, gallery }: SlugPageProps) {
   return (
-    <div className="slug-page">
+    <section className="slug-page">
       <h2 className="slug-page__title">{post.title}</h2>
       <article className='slug-page__content' dangerouslySetInnerHTML={{__html: post.content}}></article>
       {gallery && <ImageGallery images={gallery} />}
-    </div>
+    </section>
   )
 }
 
@@ -59,7 +59,7 @@ export async function getStaticProps({ params }: { params: { slug: string }}){
         gallery
       }
     }
-  }
+}
   
   export async function getStaticPaths(){
       // add array !!
