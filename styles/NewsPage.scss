@@ -7,6 +7,7 @@
     width: 100%;
     display: grid;
     grid-gap: 2rem;
+    grid-template-rows: repeat(3, 400px);
     justify-items: center;
     &__pagination {
         width: 100%;

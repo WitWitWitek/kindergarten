@@ -4,7 +4,7 @@ import { fetchPostsPerPage } from '@/lib/pagination';
 import Offer from '@/components/Home/Offer/Offer';
 import HomeNews from '@/components/Home/HomeNews/HomeNews';
 import Costs from '@/components/Home/Costs/Costs';
-
+import Link from 'next/link';
 
 export default function HomePage({ homepage, lastNews }: HomepageProps) {
   return (
@@ -33,6 +33,7 @@ export default function HomePage({ homepage, lastNews }: HomepageProps) {
       <article className='home-page__section'>
         <h3 className='home-page__section-title'>Cennik</h3>
         <Costs />
+        <Link href='/dla-rodzica' className="home-page__section-news-more">Sprawdź szczegóły dla rodzica</Link>
       </article>
 
       <article className='home-page__section'>

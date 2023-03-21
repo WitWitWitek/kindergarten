@@ -11,6 +11,7 @@
 @use './ContactPage.scss' as *;
 @use './HomePage.scss' as *;
 @use './Post.scss' as *;
+@use './Silder.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Montserrat:wght@300;500;700&display=swap');
 
 * {
@@ -57,7 +58,7 @@ body {
         background-image: url('/background.png');
         background-position: center;
         background-size: contain;
-        opacity: 0.6;
+        opacity: 0.7;
     }
 }
 

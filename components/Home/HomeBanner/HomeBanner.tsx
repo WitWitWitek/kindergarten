@@ -10,16 +10,16 @@ interface Photo {
 
 const photosGallery: Photo[] = [
   {
-    src: '/kids.jpg',
-    alt: 'toys banner'
+    src: '/numbers.jpg',
+    alt: 'numbers banner'
   },
   {
     src: '/toys.jpg',
-    alt: 'kids banner'
+    alt: 'toys banner'
   },
   {
-    src: '/kids2.jpg',
-    alt: 'kids banner'
+    src: '/pencils.jpg',
+    alt: 'pencils banner'
   },
 ]
 
@@ -37,9 +37,9 @@ export default function HomeBanner() {
   useEffect(() => {
     const callbackFn = () => {
       if (photoIndex === (photosGallery.length - 1)) {
-        return setPhotoIndex(0)
+        return setPhotoIndex(prevPhotoIndex => 0)
       }
-      setPhotoIndex(photoIndex + 1)
+      setPhotoIndex(prevPhotoIndex => prevPhotoIndex + 1)
     }
 
     const interval = setInterval(callbackFn, time)

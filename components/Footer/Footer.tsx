@@ -13,6 +13,7 @@ export default function Footer() {
             <>
               <Link href="/aktualnosci"><span>» </span>aktualnosci</Link>
               <Link href="/galeria"><span>» </span>galeria</Link>
+              <Link href="/dla-rodzica"><span>» </span>dla rodzica</Link>
               <Link href="/kontakt"><span>» </span>kontakt</Link>
             </>
           } 

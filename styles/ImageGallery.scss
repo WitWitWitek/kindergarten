@@ -1,6 +1,7 @@
 @use './variables' as *;
 @use './breakpoints' as *;
 .image-gallery {
+    position: relative;
     width: 100%;
     padding: 1rem;
     display: grid;

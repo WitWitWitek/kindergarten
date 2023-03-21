@@ -5,6 +5,12 @@ interface HomepageProps {
     lastNews: Post[]
 }
 
+interface SliderProps {
+    images: Image[],
+    index: number | undefined,
+    closeSliderFn: Dispatch<SetStateAction<boolean>>,
+}
+
 interface NavmenuProps {
     isMenuOpen: boolean
     setIsMenuOpen: Dispatch<SetStateAction<boolean>>
