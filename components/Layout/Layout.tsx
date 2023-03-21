@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import Footer from "../Footer/Footer"
 import Navbar from "../Navbar/Navbar"
-import HomeBanner from "../HomeBanner/HomeBanner"
+import HomeBanner from "../Home/HomeBanner/HomeBanner"
 import { useRouter } from "next/router"
 import GoogleMap from "../GoogleMap/GoogleMap"
 

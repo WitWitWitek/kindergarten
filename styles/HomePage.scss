@@ -1,0 +1,135 @@
+@use './variables' as *;
+@use './headers' as *;
+@use './decorators' as *;
+@use './breakpoints' as *;
+@use './buttons' as *;
+
+.home-page {
+    width: 100%;
+    &__title {
+        @include basicTitle;
+        font-size: 4rem;
+        text-align: center;
+        &::after {
+            @include titleDecorator;
+        }
+    }
+
+    &__section {
+        margin: 3rem 0;
+        text-align: justify;
+        font-size: 1.4rem;
+        width: 100%;
+        word-wrap: break-word;
+        &-title {
+            @include basicTitle;
+            font-size: 2rem;
+            text-align: center;
+            margin: 0.5rem 0;
+            &::after {
+                @include titleDecorator;
+            }
+        }
+        &-subtitle {
+            @include basicTitle;
+            margin: 0.5rem 0;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__section-news {
+        font-size: 1rem;
+        height: 30rem;
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+
+        &-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            list-style: none;
+            height: 100%;
+            transition: transform .5s ;
+            transform: translateX(0%);
+        }
+
+        &-item {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-button {
+            position: absolute;
+            top: 50%;
+            background-color: $mainNavColor;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: none;
+            color: $white;
+            font-weight: bold;
+            transform: translateX(-50%, -50%);
+            &:nth-child(2) {
+                right: 0;
+            }
+            &:disabled {
+                background-color: $darkGray;
+            }
+        }
+
+        &-more {
+            @include button(1.3rem, $white, $mainNavColor);
+            display: block;
+            margin: 2px 0;
+            text-decoration: none;
+        }
+    }
+
+    &__offer {
+        list-style: none;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        text-align: center;
+        margin: 1rem 0;
+        &-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            background-color: $white;
+            border: 1px dashed $darkGray;
+            border-radius: 0.5rem;
+            p {
+                flex: 1;
+            }
+        }
+
+        &-image {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &__costs {
+        list-style-type: none;
+        &-item {
+            margin: 1rem 0;
+            background-color: $lightGreen;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 1rem;
+        }
+    }
+
+    &__dynamic-content {
+        margin: 0;
+        overflow: hidden;
+    }
+}

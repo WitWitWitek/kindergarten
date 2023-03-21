@@ -50,19 +50,3 @@ export const fetchPostsPerPage = async (page: number = 1, per_page: number = 3):
         paginationData
     }
 }
-
-/* 
-    uri: string,
-    slug: string,
-    date: string,
-    title: string,
-    content: string,
-    excerpt: string,
-    featuredImage: {
-        node: {
-            altText: string,
-            sourceUrl: string,
-    }
-}
-
-*/

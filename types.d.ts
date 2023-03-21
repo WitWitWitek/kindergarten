@@ -1,7 +1,8 @@
 interface HomepageProps {
     homepage: {
         content: string
-    }
+    },
+    lastNews: Post[]
 }
 
 interface NavmenuProps {

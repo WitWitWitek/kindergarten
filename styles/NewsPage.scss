@@ -7,37 +7,7 @@
     width: 100%;
     display: grid;
     grid-gap: 2rem;
-
-    &__post {
-        height: 25rem;
-        background-color: $white;
-        border-radius: 1rem;
-        box-shadow: 3px 3px 5px rgba($darkGray, 0.8);
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &__title {
-        @include basicTitle;
-        font-size: 2.3rem;
-        color: $mainNavColor;
-    }
-
-    &__date {
-        font-style: italic;
-    }
-
-    &__excerpt {
-        font-size: 1.4rem;
-        text-indent: 2rem;
-        text-align: justify;
-        width: 100%;
-        height: 12.5rem;
-    }
-
+    justify-items: center;
     &__pagination {
         width: 100%;
         display: flex;
@@ -54,14 +24,5 @@
                 }
             }
         }
-    }
-
-    &__button {
-        @include button(2rem, $white, $lightRed);
-        display: block;
-        text-decoration: none;
-        width: 10rem;
-        align-self: flex-start;
-        padding: 0.5rem 1rem;
     }
 }

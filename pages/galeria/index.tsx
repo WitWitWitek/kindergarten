@@ -3,10 +3,12 @@ import { client } from "@/lib/apollo"
 import { getImagesGallery } from "@/lib/photoGallery"
 import ImageGallery from "@/components/ImageGallery/ImageGallery";
 
+interface GalleryPageProps {
+  page: Post,
+  gallery: Image[]
+}
 
-// WEZ TO UPORZADKUJ TEN PROPS I TEN REACT FRAGMENT
-
-export default function GalleryPage({ page, gallery }: { page: Post, gallery: Image[]}) {
+export default function GalleryPage({ page, gallery }: GalleryPageProps) {
   return (
     <section className='gallery-page'>
       <article className='gallery-page__content' dangerouslySetInnerHTML={{__html: page.content}}></article>

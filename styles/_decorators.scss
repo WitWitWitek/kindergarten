@@ -1,12 +1,12 @@
 @use './variables' as *;
 
-@mixin titleDecorator {
+@mixin titleDecorator($bgc: $lightRed) {
     content: '';
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     display: block;
-    background-color: $lightRed;
+    background-color: $bgc;
     width: 7.5rem;
     height: .4rem;
     border-radius: .5rem;

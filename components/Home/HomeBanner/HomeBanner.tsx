@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react";
-import BannerWave from "../Waves/BannerWave";
-import FooterWave from "../Waves/FooterWave";
+import BannerWave from "../../Waves/BannerWave";
+import FooterWave from "../../Waves/FooterWave";
 
 interface Photo {
   src: string;

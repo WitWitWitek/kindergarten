@@ -1,0 +1,52 @@
+@use './variables' as *;
+@use './buttons' as *;
+@use './headers' as *;
+@use './breakpoints' as *;
+
+.post {
+    min-height: 25rem;
+    background-color: $white;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 5px rgba($darkGray, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    width: 90%;
+    height: 80%;
+
+    &__title {
+        @include basicTitle;
+        text-align: center;
+        font-size: 2.1rem;
+        color: $mainNavColor;
+    }
+    
+    &__date {
+        font-style: italic;
+    }
+    
+    &__excerpt {
+        text-indent: 2rem;
+        font-size: 1rem;
+        text-align: justify;
+        width: 80%;
+        word-wrap: break-word;
+        overflow: auto
+    }
+    
+    &__button {
+        @include button(2rem, $white, $lightRed);
+        display: block;
+        text-decoration: none;
+        min-width: 10rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@include xs {
+    .post {
+        width: 80%;
+    }
+}
