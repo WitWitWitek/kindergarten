@@ -27,10 +27,8 @@ const photoIndexFn = (index: number): number => {
   return index < 0 ? photosGallery.length - 1 : index
 }
 
-
-
 export default function HomeBanner() {
-  const [photoIndex, setPhotoIndex] = useState<number>(0)
+  const [photoIndex, setPhotoIndex] = useState<number>(1)
   
   const time = 3000;
 
@@ -52,12 +50,8 @@ export default function HomeBanner() {
           if (photoIndex === index) {
             return (
               <div key={photo.src} className="home-banner__container">
-                <div className="home-banner__photo--below">
-                <Image src={photosGallery[photoIndexFn(index - 1)].src} alt={photosGallery[photoIndexFn(index - 1)].alt} fill />
-                </div>
-                <div className="home-banner__photo--above">
-                  <Image src={photo.src} alt={photo.alt} fill />
-                </div>
+                  <img className="home-banner__photo--below" src={photosGallery[photoIndexFn(index - 1)].src} alt={photosGallery[photoIndexFn(index - 1)].alt} />
+                  <img className="home-banner__photo--above" src={photo.src} alt={photo.alt} />
               </div>
             )
           }

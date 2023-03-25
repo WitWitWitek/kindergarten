@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './breakpoints' as *;
 
 .navbar {
     width: 100%;
@@ -33,6 +34,14 @@
     }
 }
 
+@include md {
+    .navbar {
+        &__links {
+            display: flex;
+            font-size: 1rem;
+        }
+    }
+}
 
 /* svg wave */
 

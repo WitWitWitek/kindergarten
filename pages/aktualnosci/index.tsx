@@ -2,14 +2,14 @@ import { useEffect, useState } from "react"
 import Pagination from "@/components/Pagination/Pagination"
 import Post from "@/components/Post/Post";
 
-
 export default function NewsPage() {
   const [page, setPage] = useState<number>(1);
   const [posts, setPosts] = useState<Post[]>([]);
   const [pagination, setPagination] = useState<Pagination | null>()
   
   useEffect(() => {
-    fetch(`/api/postsPagination?per_page=3&page=${page}&order=desc`)
+    const per_page = window.innerWidth >= 1024 ? 6 : 3 || 3
+    fetch(`/api/postsPagination?per_page=${per_page}&page=${page}&order=desc`)
       .then(response => response.json())
       .then(data => {
         const { postListRefactored, paginationData } = data;
@@ -19,7 +19,7 @@ export default function NewsPage() {
   }, [page])
 
   if (!pagination || !posts) {
-    return <p className="news-page__title">Loading...</p>
+    return <p className="spinner">Loading...</p>
   }
 
   if (posts.length === 0) {
@@ -28,7 +28,10 @@ export default function NewsPage() {
  
   return (
     <section className="news-page">
-      {posts.map(post => <Post key={post.slug} post={post} />)}
+      <h2 className='home-page__title'>Aktualności</h2>
+      <ul className="news-page__container">
+        {posts.map(post => <Post key={post.slug} post={post} />)}
+      </ul>
       <Pagination pagination={pagination} setPage={setPage} />
     </section>
   )

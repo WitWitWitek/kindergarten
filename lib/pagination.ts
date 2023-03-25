@@ -14,9 +14,8 @@ export const fetchPostsPerPage = async (page: number = 1, per_page: number = 3):
     }
     
     const postListPerPage = await getPaginationResult.json()
-
+    
     const postListRefactored = []
-
     for (const post of postListPerPage) {
         postListRefactored.push({
             date: post.date,
@@ -25,12 +24,7 @@ export const fetchPostsPerPage = async (page: number = 1, per_page: number = 3):
             title: post.title.rendered,
             excerpt: post.excerpt.rendered,
             content: '',
-            featuredImage: {
-                node: {
-                    altText: 'string',
-                    sourceUrl: 'string',
-                }
-            }
+            featuredImage: await getFeaturedImage(post.featured_media),
         })
     }
     
@@ -50,3 +44,14 @@ export const fetchPostsPerPage = async (page: number = 1, per_page: number = 3):
         paginationData
     }
 }
+
+const getFeaturedImage 
+    = async (id: number) => fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/wp-json/wp/v2/media/${id}`)
+                            .then(res => res.json())
+                            .then(data => {
+                                return {
+                                    sourceUrl: data?.source_url || '',
+                                    title: data?.title?.rendered || '',
+                                    caption: data?.caption?.rendered || '',
+                                }
+                            })

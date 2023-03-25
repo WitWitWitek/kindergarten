@@ -5,7 +5,7 @@
 
 .home-banner {
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 90px);
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -30,14 +30,14 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 0;
-            height: 100%;
-            aspect-ratio: 1.5 / 1;
+            max-height: 100%;
+            min-width: 100%;
         }
         &--above {
             animation: photoAppears 0.7s ease-in-out;
         }
     }
+
     &__main {
         position: absolute;
         z-index: 2;
@@ -66,8 +66,6 @@
 }
 
 
-
-
 @keyframes photoAppears {
     0% {
         opacity: 0;
@@ -77,6 +75,52 @@
     }
 }
 
+@include sm {
+    .home-banner {
+        &__main {
+            h1 {
+                @include basicTitle;
+                font-size: 4.3rem;
+            }
+        }
+    }
+}
+
+@include md {
+    .home-banner {
+        height: 50vh;
+        &__photo {
+            &--above, &--below {
+                min-width: unset;
+                width: 100%;
+                max-height: min-content;
+                aspect-ratio: 2 / 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &__main {
+            h1 {
+                font-size: 4.8rem;
+            }
+        }
+    }
+}
+
+@include lg {
+    .home-banner {
+        &__main {
+            h1 {
+                font-size: 5.0rem;
+            }
+        }
+    }
+}
+
+/*  wave styling  */
+
 .custom-shape-divider-bottom-1678786164 {
     position: absolute;
     z-index: 1;
@@ -85,7 +129,7 @@
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateY(-1%);
 }
 
 .custom-shape-divider-bottom-1678786164 svg {

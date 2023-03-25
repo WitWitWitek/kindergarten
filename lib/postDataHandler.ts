@@ -10,6 +10,6 @@ export const dateHandler = (date: string): string => {
 }
 
 export const excerptHandler = (excerptWp: string): string => {
-  const cleanedExcerpt = excerptWp.replace(/<p>|<\/p>/g, '');
-  return cleanedExcerpt.substring(0, 250) + ' ...';
+  const cleanedExcerpt = excerptWp.replace(/<p>|<\/p>/g, '').replace(/&nbsp;/g, ' ');
+  return cleanedExcerpt.substring(0, 200) + '...';
 }

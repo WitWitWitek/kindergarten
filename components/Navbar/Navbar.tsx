@@ -1,29 +1,14 @@
-import Link from "next/link"
-import Image from "next/image"
-import { useState } from "react"
-import NavWave from "../Waves/NavWave"
-import NavMenu from "./NavMenu/NavMenu"
-import { Squeeze as Hamburger } from 'hamburger-react'
+import useWindowSize from "@/hooks/useWindowSize";
+import NavLarge from "./NavLarge/NavLarge";
+import NavSmall from "./NavSmall/NavSmall";
 
 export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-
+const { windowSize } = useWindowSize()
     return (
         <>
-            <nav className="navbar">
-                <div className="navbar__wrapper">
-                    <Link href="/" className="navbar__logo-container" onClick={() => setIsMenuOpen(false)}>
-                        <Image src='/logo.svg' alt="logotype" fill />
-                    </Link>
-                    <button onClick={() => setIsMenuOpen(prev => !prev)} className="navbar__menu-btn">
-                        <Hamburger toggled={isMenuOpen} color="#FFF" />
-                    </button>
-                </div>
-                <div className="navbar__svg-container">
-                    <NavWave />
-                </div>
-            </nav>
-            <NavMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            {windowSize.width < 768 && <NavSmall />}
+            {windowSize.width >= 768 && <NavLarge />}
         </>
     )
 }
+ 

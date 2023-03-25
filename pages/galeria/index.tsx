@@ -10,7 +10,8 @@ interface GalleryPageProps {
 
 export default function GalleryPage({ page, gallery }: GalleryPageProps) {
   return (
-    <section className='gallery-page'>
+    <section className='gallery-page home-page__section'>
+      <h2 className='home-page__title'>Galeria</h2>
       <article className='gallery-page__content' dangerouslySetInnerHTML={{__html: page.content}}></article>
       {gallery && <ImageGallery images={gallery} />}
     </section>

@@ -41,12 +41,7 @@ interface Post {
     title: string,
     content: string,
     excerpt: string,
-    featuredImage: {
-        node: {
-            altText: string,
-            sourceUrl: string,
-        }
-    }
+    featuredImage: Image,
 }
 
 interface Image {

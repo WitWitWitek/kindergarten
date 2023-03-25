@@ -1,8 +1,3 @@
-import next from "next";
-import Link from "next/link"
-
-
-
 export default function Pagination({ pagination, setPage }: PaginationProps ) {
     const { firstPage, previousPage, currentPage, nextPage, lastPage } = pagination
     return (

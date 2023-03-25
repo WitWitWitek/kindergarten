@@ -16,6 +16,8 @@ export default async function handler(
     if (!per_page || !page) {
       res.status(400).json({ message: 'Invalid input!' })
     }
+
     const { postListRefactored, paginationData } = await fetchPostsPerPage(+page!, +per_page!)
+    
     res.status(200).json({ postListRefactored, paginationData })
 }

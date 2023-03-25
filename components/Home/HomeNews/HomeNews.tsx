@@ -13,7 +13,7 @@ export default function HomeNews({ lastNews }: Props) {
         <div className='home-page__section-news'>
           <ul 
             className='home-page__section-news-container' 
-            style={{width: `${lastNews.length * 100}%`,transform: `translateX(-${translateX}%)`}}
+            style={{transform: `translateX(-${translateX}%)`}}
           >
             {lastNews && lastNews.map(news => (
               <li key={news.uri} className='home-page__section-news-item'>

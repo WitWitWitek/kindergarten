@@ -1,14 +1,12 @@
 import { useRef, useState, useEffect } from 'react'
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { SetStateAction } from 'react';
-
 
 export default function Slider({ images , index = 0, closeSliderFn }: SliderProps) {
   const ref = useRef<HTMLElement | null>(null)
   const [mounted, setMounted] = useState<boolean>(false)
   const [displayedIndex, setDisplayedInex] = useState<number>(index)
-  console.log('render');
+  
   useEffect(() => {
     ref.current = document.getElementById('slider')! as HTMLDivElement
     setMounted(true)
@@ -25,7 +23,11 @@ export default function Slider({ images , index = 0, closeSliderFn }: SliderProp
   const sliderStructure = (
     <div className='slider'>
         <div className="slider__main-image">
-          <Image src={images[displayedIndex].sourceUrl} alt={images[displayedIndex].title} fill />
+          <img
+            src={images[displayedIndex].sourceUrl} 
+            alt={images[displayedIndex].title} 
+            loading="lazy"
+          />
           <button 
             className="slider__button slider__button--next"
             onClick={() => setDisplayedInex(displayNextImageCb)}

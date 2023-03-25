@@ -2,6 +2,7 @@ import Costs from '@/components/Home/Costs/Costs'
 import React from 'react'
 import { gql } from '@apollo/client'
 import { client } from '@/lib/apollo'
+import File from '@/components/File/File'
 
 type Props = {
   content: string,
@@ -11,17 +12,22 @@ type Props = {
 export default function ForParentPage({ content, mediaItemUrl}: Props) {
   return (
     <section className='for-parent'>
-      <article>
-        <h3>Cennik</h3>
+      <h2 className='home-page__title'>Dla rodzica</h2>
+      <article className='home-page__section'>
+        <h3 className='home-page__section-title'>Cennik</h3>
         <Costs />
       </article>
-      <article>
-        <h3>Zapisy</h3>
+      <article className='home-page__section'>
+        <h3 className='home-page__section-title'>Zapisy</h3>
         <p>Zapisy 2023 / 2024 r.</p>
         <p>Zapraszamy dzieci w wieku od 2 i pół do 5 lat również o specjalnych potrzebach edukacyjnych.</p>
       </article>
-      <article dangerouslySetInnerHTML={{__html: content}}></article>
-      {mediaItemUrl && <a href={mediaItemUrl} target='_blank'>Regulamin</a>}
+      <article className='home-page__section' dangerouslySetInnerHTML={{__html: content}}></article>
+      {mediaItemUrl && (
+        <article className='home-page__section'>
+          <File href={mediaItemUrl}>Regulamin</File>
+        </article>
+      )}
     </section>
   )
 }

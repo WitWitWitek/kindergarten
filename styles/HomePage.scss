@@ -37,12 +37,13 @@
     }
 
     &__section-news {
-        height: 40rem;
+        height: 45rem;
         width: 100%;
         overflow-x: hidden;
         position: relative;
 
         &-container {
+            width: 300%;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -72,6 +73,7 @@
             color: $white;
             font-weight: bold;
             transform: translateX(-50%, -50%);
+            cursor: pointer;
             &:nth-child(2) {
                 right: 0;
             }
@@ -99,9 +101,9 @@
         &-item {
             display: flex;
             align-items: center;
-            padding: 0.5rem;
+            padding: 0.75rem;
             background-color: $white;
-            border: 1px dashed $darkGray;
+            border: $dashed;
             border-radius: 0.5rem;
             p {
                 flex: 1;
@@ -134,9 +136,100 @@
 
 @include xs {
     .home-page {
+        &__section {
+            font-size: 1.6rem;
+        }
+
         &__section-news {
             &-more {
                 font-size: 1.6rem;
+            }
+        }
+
+        &__offer {
+            grid-template-columns: repeat(2, 1fr);
+            &-image {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+        }
+    }
+}
+
+@include md {
+    .home-page {
+        &__title {
+            font-size: 6rem;
+        }
+        
+        &__section {
+            font-size: 1.8rem;
+            margin: 4rem 0;;
+            align-items: center;
+            &-title {
+                font-size: 3rem;
+                margin: 1.5rem 0;
+                &::after {
+                    @include titleDecorator;
+                    margin: 1.2rem 0;
+                }
+            }
+            &-subtitle {
+                margin: 2rem 0;
+                font-size: 1.9rem;
+            }
+        }
+
+        &__section-news {
+            &-button {
+                width: 3.2rem;
+                height: 3.2rem;
+            }
+
+            &-more {
+                width: 80%;
+                margin: auto;
+            }
+        }
+
+        &__offer {
+            &-image {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+    }
+}
+
+@include lg {
+    .home-page {
+        &__section-news {
+            height: 52rem;
+    
+            &-container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+    
+            &-item {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            &-button {
+                display: none;
+            }
+        }
+
+
+        &__offer {
+            grid-template-columns: repeat(3, 1fr);
+            &-image {
+                width: 8rem;
+                height: 8rem;
             }
         }
     }
