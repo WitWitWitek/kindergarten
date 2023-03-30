@@ -11,7 +11,7 @@ interface SlugPageProps {
 export default function SlugPage({ post, gallery }: SlugPageProps) {
   return (
     <section className="slug-page">
-      <h2 className="slug-page__title">{post.title}</h2>
+      <h2 className="slug-page__title page-title">{post.title}</h2>
       <article className='slug-page__content' dangerouslySetInnerHTML={{__html: post.content}}></article>
       {gallery && <ImageGallery images={gallery} />}
     </section>

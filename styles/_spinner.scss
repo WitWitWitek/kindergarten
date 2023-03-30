@@ -1,9 +1,13 @@
 @use './variables' as *;
 
-@mixin loader {
-    color: $lightRed;
-    font-size: 20px;
-    margin: 100px auto;
+@mixin loader(
+  $color: $lightRed,
+  $fsize: 20px,
+  $margin: 100px auto,
+) {
+    color: $color;
+    font-size: $fsize;
+    margin: $margin;
     width: 1em;
     height: 1em;
     border-radius: 50%;

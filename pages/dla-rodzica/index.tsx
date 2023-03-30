@@ -12,19 +12,19 @@ type Props = {
 export default function ForParentPage({ content, mediaItemUrl}: Props) {
   return (
     <section className='for-parent'>
-      <h2 className='home-page__title'>Dla rodzica</h2>
-      <article className='home-page__section'>
-        <h3 className='home-page__section-title'>Cennik</h3>
+      <h2 className='page-title'>Dla rodzica</h2>
+      <article className='article'>
+        <h3 className='article-title'>Cennik</h3>
         <Costs />
       </article>
-      <article className='home-page__section'>
-        <h3 className='home-page__section-title'>Zapisy</h3>
+      <article className='article'>
+        <h3 className='article-title'>Zapisy</h3>
         <p>Zapisy 2023 / 2024 r.</p>
         <p>Zapraszamy dzieci w wieku od 2 i pół do 5 lat również o specjalnych potrzebach edukacyjnych.</p>
       </article>
-      <article className='home-page__section' dangerouslySetInnerHTML={{__html: content}}></article>
+      <article className='article' dangerouslySetInnerHTML={{__html: content}}></article>
       {mediaItemUrl && (
-        <article className='home-page__section'>
+        <article className='article'>
           <File href={mediaItemUrl}>Regulamin</File>
         </article>
       )}

@@ -29,6 +29,10 @@
         min-height: 110%;
         background-color: rgba($lightRed, $alpha: .7);
         cursor: zoom-in;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     &__counter {
@@ -62,7 +66,9 @@
 @include xs {
     .image-gallery {
         &__image {
-            height: 100px;
+            width: auto;
+            max-width: 150%;
+            height: auto;
         }
     }
 }
@@ -70,7 +76,21 @@
 @include sm {
     .image-gallery {
         &__image {
-            height: 200px;
+            width: auto;
+            max-width: 150%;
+            height: auto;
+        }
+    }
+}
+
+@include md {
+    .image-gallery {
+        width: 70%;
+        margin: auto;
+        &__image {
+            width: auto;
+            max-width: 150%;
+            height: auto;
         }
     }
 }

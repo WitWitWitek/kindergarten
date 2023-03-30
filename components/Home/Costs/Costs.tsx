@@ -1,3 +1,4 @@
+
 export default function Costs() {
   return (
     <ul className='home-page__costs'>

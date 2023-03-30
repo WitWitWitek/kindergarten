@@ -6,35 +6,6 @@
 
 .home-page {
     width: 100%;
-    &__title {
-        @include basicTitle;
-        font-size: 4rem;
-        text-align: center;
-    }
-
-    &__section {
-        margin: 3rem 0;
-        text-align: justify;
-        font-size: 1.4rem;
-        width: 100%;
-        word-wrap: break-word;
-        background-color: rgba($white, 0.4);
-        line-height: 2.4rem;
-        &-title {
-            @include basicTitle;
-            font-size: 2rem;
-            text-align: center;
-            margin: 0.5rem 0;
-            &::after {
-                @include titleDecorator;
-            }
-        }
-        &-subtitle {
-            @include basicTitle;
-            margin: 0.5rem 0;
-            font-size: 1.6rem;
-        }
-    }
 
     &__section-news {
         height: 45rem;
@@ -119,6 +90,11 @@
 
     &__costs {
         list-style-type: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         &-item {
             margin: 1rem 0;
             background-color: $lightGreen;
@@ -131,15 +107,12 @@
     &__dynamic-content {
         margin: 0;
         overflow: hidden;
+        word-wrap: break-word;
     }
 }
 
 @include xs {
     .home-page {
-        &__section {
-            font-size: 1.6rem;
-        }
-
         &__section-news {
             &-more {
                 font-size: 1.6rem;
@@ -157,29 +130,7 @@
 }
 
 @include md {
-    .home-page {
-        &__title {
-            font-size: 6rem;
-        }
-        
-        &__section {
-            font-size: 1.8rem;
-            margin: 4rem 0;;
-            align-items: center;
-            &-title {
-                font-size: 3rem;
-                margin: 1.5rem 0;
-                &::after {
-                    @include titleDecorator;
-                    margin: 1.2rem 0;
-                }
-            }
-            &-subtitle {
-                margin: 2rem 0;
-                font-size: 1.9rem;
-            }
-        }
-
+    .home-page {        
         &__section-news {
             &-button {
                 width: 3.2rem;
@@ -189,6 +140,12 @@
             &-more {
                 width: 80%;
                 margin: auto;
+            }
+        }
+
+        &__costs {
+            &-item {
+                width: 80%;
             }
         }
 

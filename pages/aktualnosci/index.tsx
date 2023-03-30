@@ -28,7 +28,7 @@ export default function NewsPage() {
  
   return (
     <section className="news-page">
-      <h2 className='home-page__title'>Aktualności</h2>
+      <h2 className='page-title'>Aktualności</h2>
       <ul className="news-page__container">
         {posts.map(post => <Post key={post.slug} post={post} />)}
       </ul>

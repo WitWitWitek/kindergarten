@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.srv54239.seohost.com.pl',
+        hostname: 'www.witoldrychlik.com.pl',
         port: '',
         pathname: '/**',
       },

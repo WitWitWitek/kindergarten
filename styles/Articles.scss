@@ -1,0 +1,55 @@
+@use './variables' as *;
+@use './headers' as *;
+@use './decorators' as *;
+@use './breakpoints' as *;
+
+.article {
+    margin: 3rem 0;
+    text-align: justify;
+    font-size: 1.4rem;
+    width: 100%;
+    word-wrap: break-word;
+    background-color: rgba($white, 0.4);
+    line-height: 2.4rem;
+    &-title {
+        @include basicTitle;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0.5rem 0;
+        &::after {
+            @include titleDecorator;
+        }
+    }
+    &-subtitle {
+        @include basicTitle;
+        margin: 0.5rem 0;
+        font-size: 1.6rem;
+    }
+}
+
+@include xs {
+    .article {
+        font-size: 1.6rem;
+    }
+
+}
+
+@include md {  
+    .article {     
+        font-size: 1.8rem;
+        margin: 4rem 0;;
+        align-items: center;
+        &-title {
+            font-size: 3rem;
+            margin: 1.5rem 0;
+             &::after {
+                 @include titleDecorator;
+                margin: 1.2rem 0;
+                }
+            }
+            &-subtitle {
+                margin: 2rem 0;
+                font-size: 1.9rem;
+            }
+        }
+}

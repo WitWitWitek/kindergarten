@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Offer() {
   return (
     <>
-      <h3 className="home-page__section-subtitle">Oto poszczególne z nich:</h3>
+      <h3 className="article-subtitle">Oto poszczególne z nich:</h3>
       <ul className='home-page__offer'>
         <li className='home-page__offer-item'>
             <div className='home-page__offer-image'>
