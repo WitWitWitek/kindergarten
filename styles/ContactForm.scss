@@ -16,6 +16,9 @@
     }
 
     &__input, &__textarea {
+        display: block;
+        max-width: 100%;
+        min-width: 100%;
         outline-color: $lightRed;
         border-radius: 1rem;
         border: 1px solid $darkGray;
@@ -27,8 +30,6 @@
     }
 
     &__textarea {
-        max-width: 100%;
-        min-width: 100%;
         min-height: 20rem;
         resize: none;
     }

@@ -1,7 +1,8 @@
-import { gql } from "@apollo/client"
-import { client } from "@/lib/apollo"
-import { getImagesGallery } from "@/lib/photoGallery"
-import ImageGallery from "@/components/ImageGallery/ImageGallery";
+import React from 'react';
+import { gql } from '@apollo/client';
+import client from '@/lib/apollo';
+import getImagesGallery from '@/lib/photoGallery';
+import ImageGallery from '@/components/ImageGallery/ImageGallery';
 
 interface GalleryPageProps {
   page: Post,
@@ -10,12 +11,12 @@ interface GalleryPageProps {
 
 export default function GalleryPage({ page, gallery }: GalleryPageProps) {
   return (
-    <section className='gallery-page article'>
-      <h2 className='page-title'>Galeria</h2>
-      <article className='gallery-page__content' dangerouslySetInnerHTML={{__html: page.content}}></article>
+    <section className="gallery-page article">
+      <h2 className="page-title">Galeria</h2>
+      <article className="gallery-page__content" dangerouslySetInnerHTML={{ __html: page.content }} />
       {gallery && <ImageGallery images={gallery} />}
     </section>
-  )
+  );
 }
 
 export async function getStaticProps() {
@@ -26,22 +27,22 @@ export async function getStaticProps() {
           uri
         }
     }
-  `
+  `;
 
-  const gallery = await getImagesGallery('galeria', 'pages')
+  const gallery = await getImagesGallery('galeria', 'pages');
 
   const response = await client.query({
-      query: GET_GALLERY_PAGE,
-      variables: {
-        id: "galeria"
-      }
-  })
+    query: GET_GALLERY_PAGE,
+    variables: {
+      id: 'galeria',
+    },
+  });
 
-  const page = response?.data?.page
+  const page = response?.data?.page;
   return {
     props: {
       page,
-      gallery
-    }
-  }
+      gallery,
+    },
+  };
 }

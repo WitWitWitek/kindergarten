@@ -1,45 +1,50 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { transporter } from '@/lib/nodemailer';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import transporter from '@/lib/nodemailer';
 import DOMPurify from 'isomorphic-dompurify';
 
 type ResponseMessage = {
   message?: string,
-}
+};
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseMessage>
+  res: NextApiResponse<ResponseMessage>,
 ) {
-    if (req.method === 'POST') {
-        const { name, email, subject, text } = req.body;
-        if (!name || !email || !subject || !text) {
-            return res.status(400).json({ message: "Bad request"});
-        }
-        try {
-            const cleanedName = DOMPurify.sanitize(name)
-            const cleanedEmail = DOMPurify.sanitize(email)
-            const cleanedSubject = DOMPurify.sanitize(subject)
-            const cleanedText = DOMPurify.sanitize(text)
-            await transporter.sendMail({
-                from: process.env.EMAIL,
-                to: process.env.RECIPENT_EMAIL,
-                subject: cleanedSubject,
-                text: 'This is a text string',
-                html: createContent({name: cleanedName, email: cleanedEmail, subject: cleanedSubject, text: cleanedText})
-            })
-            return res.status(200).json({ message: "Message succesfully sent" });
-        } catch (err: any) {
-            console.log(err);
-            return res.status(400).json({ message: err.message })
-        }
-
+  if (req.method === 'POST') {
+    const {
+      name, email, subject, text,
+    } = req.body;
+    if (!name || !email || !subject || !text) {
+      return res.status(400).json({ message: 'Bad request' });
     }
-    res.status(400).json({ message: "Bad request" });
+    try {
+      const cleanedName = DOMPurify.sanitize(name);
+      const cleanedEmail = DOMPurify.sanitize(email);
+      const cleanedSubject = DOMPurify.sanitize(subject);
+      const cleanedText = DOMPurify.sanitize(text);
+      await transporter.sendMail({
+        from: process.env.EMAIL,
+        to: process.env.RECIPENT_EMAIL,
+        subject: cleanedSubject,
+        text: 'This is a text string',
+        html: createContent({
+          name: cleanedName, email: cleanedEmail, subject: cleanedSubject, text: cleanedText,
+        }),
+      });
+      return res.status(200).json({ message: 'Message succesfully sent' });
+    } catch (err) {
+      if (err && typeof err === 'object' && 'message' in err) {
+        return res.status(400).json({ message: err.message as string });
+      }
+    }
+  }
+  return res.status(400).json({ message: 'Bad request' });
 }
 
-
-function createContent({name, email, subject, text}: { name: string, email: string, subject: string, text: string }) {
-    return `
+function createContent({
+  name, email, subject, text,
+}: { name: string, email: string, subject: string, text: string }) {
+  return `
             <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -65,5 +70,5 @@ function createContent({name, email, subject, text}: { name: string, email: stri
             </main>
         </body>
         </html>
-    `
+    `;
 }
